@@ -1,0 +1,16 @@
+# Dotenv
+.env
+*/.env
+!.env.example
+
+# Logs
+logs.txt
+*.txt
+
+# JavaScript
+node_modules
+dist
+build
+
+# Temp
+tmp
