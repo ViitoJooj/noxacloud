@@ -1,0 +1,168 @@
+openapi: 3.0.4
+info:
+  title: NoxaCloud
+  version: 0.0.1
+servers:
+  - url: https://api.noxacloud.com.br
+    description: Prod Server
+  - url: https://dev.api.noxacloud.com.br
+    description: Dev Server
+  - url: http://localhost:8080
+    description: Local Server
+paths:
+  /v1/auth/register:
+    post:
+      summary: Create a new account
+      description: Route to create a new account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterInput'
+
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RegisterInput'
+
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RegisterInput'
+
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/RegisterInput'
+
+      responses:
+        "201":
+          description: Account created successfully
+          headers:
+            Set-Cookie:
+              description: Sets access_token and refresh_token HTTP-only cookies
+              schema:
+                type: string
+                example: "access_token=eyJhb...; Path=/; Secure; HttpOnly; SameSite=Strict"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: "rax-00"
+                error: ""
+                message: "Account created successfully."
+                data:
+                  name: "John Doe"
+                  email: "user@noxacloud.com"
+                  phone: "+5511999999999"
+                  cpf: "12345678900"
+                  cnpj: "12345678000195"
+                  orgname: "Noxa Enterprise"
+                  role: "admin"
+        "400":
+          description: Input validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: "rax-01"
+                error: "Either email or phone must be provided, along with CPF or CNPJ."
+                message: "Please check your input data and try again."
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: "rax-99"
+                error: "Database connection failed"
+                message: "Something went wrong on our end. Please try again later."
+
+components:
+  schemas:
+    RegisterInput:
+      type: object
+      required:
+        - name
+        - password
+      properties:
+        name:
+          type: string
+          example: "John Doe"
+        email:
+          type: string
+          format: email
+          example: "user@noxacloud.com"
+        phone:
+          type: string
+          example: "+5511999999999"
+        cpf:
+          type: string
+          example: "12345678900"
+        cnpj:
+          type: string
+          example: "12345678000195"
+        orgname:
+          type: string
+          example: "Noxa Enterprise"
+        password:
+          type: string
+          format: password
+          example: "Secret123!"
+        keep_logged:
+          type: boolean
+          example: true
+      anyOf:
+        - required: [email]
+        - required: [phone]
+        - required: [cpf]
+        - required: [cnpj]
+      xml:
+        name: "UserRegister"
+
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          example: "rax-00"
+        error:
+          type: string
+          description: Detailed technical error or empty string on success
+          example: ""
+        message:
+          type: string
+          description: Actionable user guidance or status message
+          example: "Account created successfully."
+        data:
+          type: object
+          nullable: true
+          properties:
+            name:
+              type: string
+              example: "John Doe"
+            email:
+              type: string
+              format: email
+              nullable: true
+              example: "user@noxacloud.com"
+            phone:
+              type: string
+              nullable: true
+              example: "+5511999999999"
+            cpf:
+              type: string
+              nullable: true
+              example: "12345678900"
+            cnpj:
+              type: string
+              nullable: true
+              example: "12345678000195"
+            orgname:
+              type: string
+              nullable: true
+              example: "Noxa Enterprise"
+            role:
+              type: string
+              example: "admin"
