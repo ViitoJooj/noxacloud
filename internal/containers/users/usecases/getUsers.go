@@ -1,21 +1,26 @@
 package usecases
 
-import "github.com/ViitoJooj/noxacloud/internal/contracts"
+import (
+	"context"
+	"uuid"
 
-type Input struct {
-}
+	"github.com/ViitoJooj/noxacloud/internal/containers/users/entities"
+)
 
-type Output struct {
-}
+func (u UsersUseCase) GetUser(ctx context.Context, id *uuid.UUID) (*entities.User, []entities.User, error) {
 
-type useCase struct{}
+	if id != nil {
+		data, err := u.Repository.GetUserById(ctx, id)
+		if err != nil {
+			return nil, nil, err
+		}
+		return &data, nil, nil
+	}
 
-func NewUsersUseCase() contracts.IUseCase[Input, Output] {
-	return &useCase{}
-}
+	data, err := u.Repository.GetUsers(ctx)
+	if err != nil {
+		return nil, nil, err
+	}
 
-func (u *useCase) Perform(in Input) (Output, error) {
-	var output Output
-
-	return output, nil
+	return nil, data, nil
 }
