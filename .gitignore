@@ -14,3 +14,7 @@ build
 
 # Temp
 tmp
+
+# Python
+.venv
+__pycache__
