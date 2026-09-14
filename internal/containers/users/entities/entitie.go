@@ -15,6 +15,11 @@ const (
 	UserRole  Role = "user"
 )
 
+type Credentials struct {
+	Email    string
+	Password string
+}
+
 type User struct {
 	ID        uuid.UUID
 	Name      string
