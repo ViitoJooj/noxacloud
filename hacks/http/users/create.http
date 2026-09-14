@@ -1,0 +1,13 @@
+@ENDPOINT={{APPLICATION_BACKEND}}/v1/users
+
+POST {{ENDPOINT}}
+Content-Type: application/json
+
+{
+    "name": "João da Silvas",
+    "email": "joao.silva@examplee.com",
+    "phone": "11999999991",
+    "cpf": "11144477735",
+    "cnpj": "11222333000181",
+    "password": "Senha@734"
+}
