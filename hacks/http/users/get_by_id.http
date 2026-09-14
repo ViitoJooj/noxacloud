@@ -1,0 +1,4 @@
+@ENDPOINT={{APPLICATION_BACKEND}}/v1/users
+@id=
+
+GET {{ENDPOINT}}/{{id}}
