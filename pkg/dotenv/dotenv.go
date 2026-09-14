@@ -17,10 +17,8 @@ type Cfg struct {
 }
 
 type Application struct {
-	BackHost  string
-	BackPort  string
-	FrontHost string
-	FrontPort string
+	BackendURL  string
+	FrontendURL string
 }
 
 type PostgreSQL struct {
@@ -28,7 +26,8 @@ type PostgreSQL struct {
 }
 
 type Stripe struct {
-	ApiKey string
+	SecretKey string
+	PublicKey string
 }
 
 func NewDotenv(ctx context.Context) (*Cfg, error) {
@@ -44,16 +43,15 @@ func NewDotenv(ctx context.Context) (*Cfg, error) {
 
 	output = Cfg{
 		Application: Application{
-			BackHost:  os.Getenv("APPLICATION_BACK_HOST"),
-			BackPort:  os.Getenv("APPLICATION_BACK_PORT"),
-			FrontHost: os.Getenv("APPLICATION_FRONT_HOST"),
-			FrontPort: os.Getenv("APPLICATION_FRONT_PORT"),
+			BackendURL:  os.Getenv("APPLICATION_BACKEND"),
+			FrontendURL: os.Getenv("APPLICATION_FRONTEND"),
 		},
 		PostgreSQL: PostgreSQL{
 			Uri: os.Getenv("POSTGRES_URI"),
 		},
 		Stripe: Stripe{
-			ApiKey: os.Getenv("STRIPE_API_KEY"),
+			SecretKey: os.Getenv("STRIPE_SECRET_KEY"),
+			PublicKey: os.Getenv("STRIPE_PUBLIC_KEY"),
 		},
 	}
 
@@ -72,8 +70,12 @@ func validate(cfg Cfg) error {
 		erros = append(erros, "POSTGRES_URI")
 	}
 
-	if cfg.Stripe.ApiKey == "" {
-		erros = append(erros, "STRIPE_API_KEY")
+	if cfg.Stripe.SecretKey == "" {
+		erros = append(erros, "STRIPE_SECRET_KEY")
+	}
+
+	if cfg.Stripe.SecretKey == "" {
+		erros = append(erros, "STRIPE_PUBLIC_KEY")
 	}
 
 	return dotenvNullValue(erros)
