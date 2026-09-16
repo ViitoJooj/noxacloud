@@ -21,3 +21,5 @@ __pycache__
 
 # AI & Agents
 .claude
+.superpowers
+www/docs

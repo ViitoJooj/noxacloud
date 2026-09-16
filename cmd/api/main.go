@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/ViitoJooj/noxacloud/internal/containers/users"
+	"github.com/ViitoJooj/noxacloud/internal/workers"
 	"github.com/ViitoJooj/noxacloud/pkg/dotenv"
 	"github.com/ViitoJooj/noxacloud/pkg/errorx"
 	"github.com/ViitoJooj/noxacloud/pkg/httpx"
@@ -14,9 +15,11 @@ import (
 
 func main() {
 
-	ctx := context.Background()
+	ctx, cancel := context.WithCancel(context.Background())
 	server := gin.Default()
 	server.Use(httpx.ErrorHandler())
+
+	defer cancel()
 
 	cfg, err := dotenv.NewDotenv(ctx)
 	if err != nil {
@@ -32,6 +35,8 @@ func main() {
 	if err != nil {
 		errorx.Fatal(err)
 	}
+
+	workers.Exec(ctx, db)
 
 	if err := users.Init(ctx, server, db); err != nil {
 		errorx.Fatal(err)

@@ -12,7 +12,7 @@ import (
 
 const (
 	logFile     = "logs.txt"
-	maxLogLines = 500
+	maxLogLines = 1000
 )
 
 func init() {

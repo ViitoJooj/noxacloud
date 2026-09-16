@@ -33,6 +33,11 @@ func (u CreateUserUseCase) Perform(ctx context.Context, input CreateUserUseCaseI
 		return CreateUserUseCaseOutput{}, err
 	}
 
+	data, err = data.SetHashedPassword()
+	if err != nil {
+		return CreateUserUseCaseOutput{}, err
+	}
+
 	exists, err := u.Repository.Exists(ctx, *data)
 	if err != nil {
 		return CreateUserUseCaseOutput{}, err

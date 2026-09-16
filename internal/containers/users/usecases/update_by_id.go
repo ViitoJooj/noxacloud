@@ -27,6 +27,7 @@ type UpdateUserByIDUseCaseOutput struct {
 	Data entities.User
 }
 
+// TODO: validar dados antes de atualizar
 func (u UpdateUserByIDUseCase) Perform(ctx context.Context, input UpdateUserByIDUseCaseInput) (UpdateUserByIDUseCaseOutput, error) {
 
 	output, err := u.Repository.Update(ctx, input.ID, input.Data)

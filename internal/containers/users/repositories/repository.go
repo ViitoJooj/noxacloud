@@ -6,6 +6,8 @@ import (
 	"uuid"
 
 	"github.com/ViitoJooj/noxacloud/internal/containers/users/entities"
+	"github.com/ViitoJooj/noxacloud/pkg/logs"
+	"github.com/ViitoJooj/noxacloud/pkg/utils"
 )
 
 type UsersRepository struct {
@@ -58,6 +60,12 @@ func (r UsersRepository) Save(ctx context.Context, input entities.User) (entitie
 	user.ID = id
 	user.Role = entities.Role(roleStr)
 
+	err = utils.SaveIsertionMetadata(ctx, r.DB, "insert.users", nil, "SUCCESS", nil)
+	if err != nil {
+		logs.Error(ctx, err.Error())
+		utils.SaveIsertionMetadata(ctx, r.DB, "insert.action_confirm", nil, "FAILED", err)
+	}
+
 	return user, nil
 }
 
@@ -88,7 +96,7 @@ func (r UsersRepository) Exists(ctx context.Context, input entities.User) (bool,
 func (r UsersRepository) GetByID(ctx context.Context, id *uuid.UUID) (entities.User, error) {
 
 	const query = `
-		SELECT id, name, email, phone, cpf, cnpj, password, role, updated_at, created_at, deleted_at
+		SELECT id, name, email, phone, cpf, cnpj, role, updated_at, created_at, deleted_at
 		FROM users
 		WHERE id = $1 AND deleted_at IS NULL
 	`
@@ -107,7 +115,6 @@ func (r UsersRepository) GetByID(ctx context.Context, id *uuid.UUID) (entities.U
 		&user.Phone,
 		&user.CPF,
 		&user.CNPJ,
-		&user.Password,
 		&roleStr,
 		&user.UpdatedAt,
 		&user.CreatedAt,
@@ -131,7 +138,7 @@ func (r UsersRepository) GetByID(ctx context.Context, id *uuid.UUID) (entities.U
 func (r UsersRepository) List(ctx context.Context) ([]entities.User, error) {
 
 	const query = `
-		SELECT id, name, email, phone, cpf, cnpj, password, role, updated_at, created_at, deleted_at
+		SELECT id, name, email, phone, cpf, cnpj, role, updated_at, created_at, deleted_at
 		FROM users
 		WHERE deleted_at IS NULL
 		ORDER BY created_at DESC
@@ -161,7 +168,6 @@ func (r UsersRepository) List(ctx context.Context) ([]entities.User, error) {
 			&user.Phone,
 			&user.CPF,
 			&user.CNPJ,
-			&user.Password,
 			&roleStr,
 			&user.UpdatedAt,
 			&user.CreatedAt,
@@ -230,6 +236,12 @@ func (r UsersRepository) Update(ctx context.Context, id *uuid.UUID, input entiti
 	user.ID = parsedID
 	user.Role = entities.Role(roleStr)
 
+	err = utils.SaveIsertionMetadata(ctx, r.DB, "update.users", nil, "SUCCESS", nil)
+	if err != nil {
+		logs.Error(ctx, err.Error())
+		utils.SaveIsertionMetadata(ctx, r.DB, "insert.action_confirm", nil, "FAILED", err)
+	}
+
 	return user, nil
 }
 
@@ -242,5 +254,12 @@ func (r UsersRepository) Delete(ctx context.Context, id *uuid.UUID) error {
 	`
 
 	_, err := r.DB.ExecContext(ctx, query, id.String())
+
+	err = utils.SaveIsertionMetadata(ctx, r.DB, "delete.users", nil, "SUCCESS", nil)
+	if err != nil {
+		logs.Error(ctx, err.Error())
+		utils.SaveIsertionMetadata(ctx, r.DB, "insert.action_confirm", nil, "FAILED", err)
+	}
+
 	return err
 }

@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS users (
     cpf VARCHAR(11) UNIQUE,
     cnpj VARCHAR(14) UNIQUE,
     password VARCHAR(255) NOT NULL,
-    role VARCHAR(50) NOT NULL DEFAULT 'user',
+    role VARCHAR(20) NOT NULL DEFAULT 'user' CHECK (role IN ('admin', 'user')),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP WITH TIME ZONE
@@ -17,3 +17,4 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_users_cpf ON users(cpf) WHERE deleted_at I
 CREATE UNIQUE INDEX IF NOT EXISTS idx_users_cnpj ON users(cnpj) WHERE deleted_at IS NULL AND cnpj IS NOT NULL;
 CREATE INDEX IF NOT EXISTS idx_users_active_created ON users(created_at DESC) WHERE deleted_at IS NULL;
 CREATE INDEX IF NOT EXISTS idx_users_role ON users(role) WHERE deleted_at IS NULL;
+CREATE INDEX IF NOT EXISTS idx_users_deleted_at ON users(deleted_at) WHERE deleted_at IS NOT NULL;

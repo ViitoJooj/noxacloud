@@ -6,6 +6,7 @@ import (
 	"uuid"
 
 	"github.com/ViitoJooj/go-sdk/validate"
+	"github.com/ViitoJooj/noxacloud/pkg/security"
 )
 
 type Role string
@@ -108,14 +109,25 @@ func (u *User) GetUserRole() Role {
 	return u.Role
 }
 
-func (u *User) GetUserUpdatedAt() time.Time {
-	return u.UpdatedAt
+func (u *User) GetUserUpdatedAt() *time.Time {
+	return &u.UpdatedAt
 }
 
-func (u *User) GetUserCreatedAt() time.Time {
-	return u.CreatedAt
+func (u *User) GetUserCreatedAt() *time.Time {
+	return &u.CreatedAt
 }
 
-func (u *User) GetUserDeletedAt() time.Time {
-	return *u.DeletedAt
+func (u *User) GetUserDeletedAt() *time.Time {
+	return u.DeletedAt
+}
+
+func (u *User) SetHashedPassword() (*User, error) {
+	hashedPassword, err := security.HashPassword(u.Password)
+	if err != nil {
+		return nil, err
+	}
+
+	u.Password = hashedPassword
+
+	return u, nil
 }
