@@ -11,6 +11,7 @@ logs.txt
 node_modules
 dist
 build
+.svelte-kit
 
 # Temp
 tmp
