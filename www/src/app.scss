@@ -1,31 +1,115 @@
-// Globals
+@use './lib/styles/tokens' as *;
 
-html, body {
-    padding: 0;
-    margin: 0;
-    background-color: $primary-background-color;
-    font-family: $primary-font-family;
+// Globals
+*, *::before, *::after {
+	box-sizing: border-box;
 }
 
-// Variables (White theme)
-$primary-background-color:;
-$secondary-background-color:;
-$thirdary-background-color:;
+html, body {
+	padding: 0;
+	margin: 0;
+	background-color: $primary-background-color;
+	font-family: $secondary-font-family;
+	font-size: 17px;
+	color: $primary-font-color;
+}
 
-$primary-button-color:;
-$secondary-button-color:;
-$thirdary-button-color:;
+h1, h2, h3, h4, h5, h6 {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	line-height: 1.12;
+	margin: 0 0 $space-2;
+}
 
-$primary-font-color:;
-$secondary-font-color:;
-$thirdary-font-color:;
+h1 { font-size: $h1-font-size; }
+h2 { font-size: $h2-font-size; }
+h3 { font-size: $h3-font-size; }
+h4 { font-size: $h4-font-size; }
+h5 { font-size: $h5-font-size; }
+h6 { font-size: $h6-font-size; letter-spacing: 0.08em; text-transform: uppercase; }
 
-$primary-font-family:;
-$secondary-font-family:;
+p { margin: 0 0 $space-3; }
 
-$primary-border-color:;
-$secondary-border-color:;
+a {
+	color: $primary-button-color;
+	text-underline-offset: 3px;
+}
 
-$small-border-radius-size:;
-$average-border-radius-size:;
-$large-border-raduys-size:;
+:focus { outline: none; }
+:focus-visible {
+	outline: 2px solid $secondary-border-color;
+	outline-offset: 2px;
+}
+::selection {
+	background: $thirdary-button-color;
+}
+
+// Every kicker (a small label above a section/page heading) and the hairline
+// rule beneath it — identical everywhere they appear, hero or body section.
+.kicker {
+	display: block;
+	font-size: 13px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	font-weight: $heading-font-weight;
+	color: $accent-700;
+	margin: 0 0 $space-1;
+}
+
+.caption-rule {
+	height: 1px;
+	border: 0;
+	margin: 0 0 $space-3;
+	background: $primary-border-color;
+}
+
+// Full-bleed gradient bar used as a stronger divider between major page
+// regions (header/content, hero/content), distinct from the hairline
+// .caption-rule used inside a section.
+.accent-divider {
+	height: 5px;
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	background: linear-gradient(90deg, $accent-900, $primary-button-color, $accent-900);
+}
+
+@font-face {
+	font-family: "Barlow";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('./lib/assets/fonts/barlow/barlow-400.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: "Barlow";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url('./lib/assets/fonts/barlow/barlow-500.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: "Barlow";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('./lib/assets/fonts/barlow/barlow-700.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: "Barlow Condensed";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('./lib/assets/fonts/barlow-condensed/barlow-condensed-400.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: "Barlow Condensed";
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url('./lib/assets/fonts/barlow-condensed/barlow-condensed-600.woff2') format('woff2');
+}

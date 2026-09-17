@@ -1,0 +1,136 @@
+@use '../../lib/styles/tokens' as *;
+
+.text-muted {
+	color: $secondary-font-color;
+}
+
+.file-explorer {
+	display: flex;
+	gap: $base-leading;
+	align-items: flex-start;
+}
+
+.file-grid {
+	flex: 1;
+	min-width: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap: 14px;
+}
+
+.file-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	border: 1px solid $primary-border-color;
+	padding: $base-leading 12px;
+	background: none;
+	cursor: pointer;
+	text-align: center;
+	font-family: $secondary-font-family;
+}
+
+.file-card:hover {
+	border-color: $secondary-border-color;
+}
+
+.file-card.active {
+	border-color: $secondary-border-color;
+	background: $selected-tint-color;
+}
+
+.file-icon {
+	color: color-mix(in srgb, $primary-font-color 55%, transparent);
+}
+
+.file-name {
+	font-size: 13px;
+	font-weight: 600;
+	word-break: break-word;
+}
+
+.file-meta {
+	font-size: 12px;
+	color: $secondary-font-color;
+}
+
+.file-detail-panel {
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	width: 300px;
+	overflow-y: auto;
+	border-left: 1px solid $primary-border-color;
+	background: $primary-background-color;
+	box-shadow: $shadow-lg;
+	padding: calc(#{$base-leading} * 1.5) $base-leading;
+	z-index: 30;
+}
+
+.file-detail-actions {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-top: $base-leading;
+}
+
+.file-detail-actions :global(.btn) {
+	justify-content: flex-start;
+	gap: 8px;
+	width: 100%;
+}
+
+.file-detail-close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	font-size: 18px;
+	line-height: 1;
+	color: $secondary-font-color;
+}
+
+.file-detail-close:hover {
+	color: $accent-700;
+}
+
+.doc-detail-icon {
+	color: color-mix(in srgb, $primary-font-color 55%, transparent);
+	margin-bottom: 10px;
+}
+
+@media (max-width: 700px) {
+	.file-explorer {
+		flex-direction: column;
+	}
+
+	.file-detail-panel {
+		width: 100%;
+	}
+}
+
+.kv {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: $base-leading;
+	margin-top: $half-leading;
+}
+
+.kv div span.k {
+	display: block;
+	font-size: 12px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: $secondary-font-color;
+	margin-bottom: 4px;
+}
+
+.kv div span.v {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 20px;
+}

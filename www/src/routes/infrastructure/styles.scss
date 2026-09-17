@@ -1,0 +1,132 @@
+@use '../../lib/styles/tokens' as *;
+
+.infra-hero-bleed {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(100vh - 68px - 5px);
+	width: 100vw;
+	padding: calc(1.5 * $space-8) 0;
+	overflow: hidden;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+}
+
+.infra-hero-bg {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background-color: $accent-900;
+	background-size: cover;
+	background-position: center;
+}
+
+.infra-hero-bg::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: $primary-button-color;
+	mix-blend-mode: color;
+}
+
+.infra-hero-scrim {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	background: color-mix(in srgb, $accent-900 72%, transparent);
+}
+
+.infra-hero-copy-overlay {
+	position: relative;
+	z-index: 2;
+	max-width: 720px;
+	text-align: center;
+	color: $inverted-font-color;
+	padding: 0 $page-edge-padding;
+}
+
+.infra-hero-copy-overlay .kicker {
+	color: $inverted-font-color-muted;
+}
+
+.infra-hero-copy-overlay .caption-rule {
+	background: rgba(242, 242, 243, 0.3);
+}
+
+.infra-hero-copy-overlay .infra-button-row {
+	justify-content: center;
+}
+
+.infra-hero-copy-overlay .btn-ghost {
+	color: $inverted-font-color;
+	border-color: $inverted-font-color;
+}
+
+.infra-hero-copy-overlay .btn-ghost:hover {
+	background: rgba(242, 242, 243, 0.15);
+}
+
+.infra-hero-title {
+	font-size: clamp(32px, 4.5vw, 56px);
+	line-height: 1.1;
+	letter-spacing: 0.01em;
+	text-transform: uppercase;
+	color: $inverted-font-color;
+	margin: $space-2 0 0;
+}
+
+.infra-button-row {
+	display: flex;
+	gap: $space-3;
+	margin-top: $base-leading;
+}
+
+.infra-sub {
+	max-width: $reading-measure;
+	margin: $half-leading auto 0;
+	color: $inverted-font-color-muted;
+}
+
+.infra-flow,
+.infra-managed,
+.infra-notifications,
+.infra-stack {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: $space-6 $page-edge-padding;
+}
+
+.infra-section-intro {
+	max-width: $reading-measure;
+	color: $secondary-font-color;
+	margin-bottom: $space-4;
+}
+
+.infra-flow-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: $space-2;
+	margin-top: $space-3;
+}
+
+.infra-flow-step {
+	padding: $space-1 $space-2;
+	border-radius: $average-border-radius-size;
+	background: $secondary-background-color;
+	font-size: 13px;
+	white-space: nowrap;
+}
+
+.infra-flow-arrow {
+	color: $secondary-font-color;
+}
+
+.infra-card-grid {
+	margin-top: $space-3;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: $space-4;
+}

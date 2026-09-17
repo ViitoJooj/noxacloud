@@ -1,0 +1,82 @@
+@use '../../styles/tokens' as *;
+
+.site-footer {
+	margin-top: calc(2 * $base-leading);
+	border-top: 1px solid $primary-border-color;
+	padding: calc(2 * $base-leading) $page-edge-padding 0;
+}
+
+.footer-top {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1.4fr 1fr 1fr;
+	gap: calc(1.5 * $base-leading);
+	padding-bottom: $base-leading;
+}
+
+.footer-brand-name {
+	display: block;
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	color: $primary-font-color;
+}
+
+.footer-brand p {
+	font-size: 13px;
+	max-width: 34ch;
+	margin: $space-2 0 0;
+	color: $secondary-font-color;
+}
+
+.footer-col {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	font-size: 14px;
+}
+
+.footer-col a {
+	color: $primary-font-color;
+	text-decoration: none;
+}
+
+.footer-col a:hover {
+	color: $primary-button-color;
+}
+
+.footer-heading {
+	display: block;
+	font-family: $primary-font-family;
+	font-size: 12px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	font-weight: $heading-font-weight;
+	color: $secondary-font-color;
+	margin-bottom: 10px;
+}
+
+.footer-bottom {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding: $base-leading 0;
+	border-top: 1px solid $primary-border-color;
+	font-size: 12px;
+	color: $secondary-font-color;
+}
+
+@media (max-width: 720px) {
+	.footer-top {
+		grid-template-columns: 1fr;
+	}
+
+	.footer-bottom {
+		flex-direction: column;
+		gap: $space-1;
+	}
+}

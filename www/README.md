@@ -28,7 +28,7 @@ Every route and every component **must** be split into the same four files, one 
 | `+page.svelte` (route) / `<name>.svelte` (component) | Markup only. No CSS, no business logic. |
 | `+page.ts` | Everything that runs in page/component load context: data fetching, state setup, handlers. |
 | `styles.scss` | All styling for that route/component. Colors, borders, fonts, radii, spacing etc are **always** pulled from the variables declared in `src/app.scss` — never hardcoded locally. |
-| `+page.test.ts` (route) / `<name>.test.ts` (component) | The single test file for that route/component (Vitest). |
+| `page.test.ts` (route, **no `+` prefix**) / `<name>.test.ts` (component) | The single test file for that route/component (Vitest). SvelteKit reserves every `+`-prefixed filename under `src/routes/` for its own special files and hard-errors on `svelte-kit sync` for anything else named `+*` — route tests must be named `page.test.ts`, not `+page.test.ts`. |
 
 ## Rules
 - No CSS inside `.svelte` or `.ts` files — styling lives only in `styles.scss`, sourced from `app.scss` variables.

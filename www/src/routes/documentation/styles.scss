@@ -1,0 +1,138 @@
+@use '../../lib/styles/tokens' as *;
+
+.hero {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: $space-8 $page-edge-padding $space-6;
+}
+
+.hero h1 {
+	text-transform: uppercase;
+	letter-spacing: 0.01em;
+}
+
+.sub {
+	max-width: $reading-measure;
+	color: $secondary-font-color;
+}
+
+.auth,
+.endpoints {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: $space-6 $page-edge-padding;
+}
+
+.section-intro {
+	max-width: $reading-measure;
+	color: $secondary-font-color;
+	margin-bottom: $space-4;
+}
+
+.card-grid {
+	margin-top: $space-3;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: $space-4;
+}
+
+.api-layout {
+	margin-top: $space-4;
+	display: grid;
+	grid-template-columns: minmax(220px, 280px) 1fr;
+	gap: $space-6;
+
+	@media (max-width: 720px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.api-nav {
+	display: flex;
+	flex-direction: column;
+	gap: $space-4;
+}
+
+.api-nav-group {
+	display: flex;
+	flex-direction: column;
+	gap: $space-1;
+}
+
+.api-nav-group-label {
+	font-size: 11px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: $secondary-font-color;
+	margin-bottom: $space-1;
+}
+
+.api-nav-item {
+	display: flex;
+	align-items: center;
+	gap: $space-2;
+	padding: $space-1 $space-2;
+	border: 1px solid transparent;
+	border-radius: $average-border-radius-size;
+	background: transparent;
+	font-family: $secondary-font-family;
+	font-size: 13px;
+	text-align: left;
+	cursor: pointer;
+}
+
+.api-nav-item:hover {
+	background: $hover-neutral-tint-color;
+}
+
+.api-nav-item.active {
+	background: $selected-tint-color;
+	border-color: $secondary-border-color;
+}
+
+.api-nav-item code {
+	font-family: monospace;
+}
+
+.api-detail {
+	display: flex;
+	flex-direction: column;
+	gap: $space-2;
+}
+
+.api-detail-header {
+	display: flex;
+	align-items: center;
+	gap: $space-2;
+}
+
+.api-detail-header code {
+	font-family: monospace;
+	font-size: 14px;
+}
+
+.response-block {
+	display: flex;
+	flex-direction: column;
+	gap: $space-1;
+	margin-bottom: $space-2;
+}
+
+.response-header {
+	display: flex;
+	align-items: center;
+	gap: $space-2;
+	font-size: 14px;
+}
+
+.code-block {
+	margin: 0;
+	padding: $space-3;
+	background: $thirdary-background-color;
+	color: $inverted-font-color;
+	border-radius: $average-border-radius-size;
+	font-family: monospace;
+	font-size: 13px;
+	overflow-x: auto;
+	white-space: pre;
+}

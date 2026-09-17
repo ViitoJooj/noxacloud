@@ -1,0 +1,40 @@
+@use '../../styles/tokens' as *;
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: $space-1;
+}
+
+.field > label {
+	font-size: 12px;
+	color: $secondary-font-color;
+}
+
+.input {
+	width: 100%;
+	min-height: 36px;
+	padding: 6px 10px;
+	font-family: $secondary-font-family;
+	font-size: 14px;
+	color: $primary-font-color;
+	caret-color: $primary-button-color;
+	background: $secondary-background-color;
+	border: 1px solid $primary-border-color;
+	border-radius: $blueprint-border-radius;
+}
+
+.input:hover { border-color: $accent-600; }
+.input:focus-visible { border-color: $secondary-border-color; outline: none; }
+
+textarea.input { min-height: 90px; resize: vertical; }
+
+select.input {
+	cursor: pointer;
+}
+
+.field-error {
+	margin: 0;
+	font-size: 12px;
+	color: $error-font-color;
+}

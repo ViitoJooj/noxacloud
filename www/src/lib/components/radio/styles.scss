@@ -1,0 +1,39 @@
+@use '../../styles/tokens' as *;
+
+.radio {
+	display: inline-flex;
+	align-items: center;
+	gap: $space-2;
+	cursor: pointer;
+	font-size: 14px;
+	color: $primary-font-color;
+}
+
+.radio input {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+.radio .dot {
+	width: 16px;
+	height: 16px;
+	flex: none;
+	border-radius: 50%;
+	border: 1.5px solid $primary-border-color;
+}
+
+.radio:hover .dot { border-color: $secondary-border-color; }
+
+.radio input:checked + .dot {
+	border-color: $secondary-border-color;
+	background: $primary-button-color;
+	box-shadow: inset 0 0 0 4px $primary-background-color;
+}
+
+.radio input:focus-visible + .dot {
+	outline: 2px solid $secondary-border-color;
+	outline-offset: 2px;
+}

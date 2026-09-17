@@ -1,0 +1,41 @@
+@use '../../styles/tokens' as *;
+
+.dialog-backdrop {
+	position: fixed;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	padding: $space-4;
+	background: rgba($thirdary-background-color, 0.5);
+}
+
+.dialog {
+	width: min(440px, 100%);
+	display: flex;
+	flex-direction: column;
+	gap: $space-3;
+	padding: $space-4;
+	border-radius: $blueprint-border-radius;
+	background: transparent;
+	border: 1px solid $primary-border-color;
+	box-shadow: $shadow-lg;
+}
+
+.dialog-title {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 20px;
+	margin: 0;
+}
+
+.dialog-body {
+	font-size: 14px;
+	color: $secondary-font-color;
+}
+
+.dialog-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: $space-2;
+	margin-top: $space-2;
+}

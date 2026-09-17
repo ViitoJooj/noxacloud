@@ -1,0 +1,39 @@
+@use '../../styles/tokens' as *;
+
+.seg {
+	display: inline-flex;
+	overflow: hidden;
+	border: 1px solid $primary-border-color;
+	border-radius: $blueprint-border-radius;
+}
+
+.seg-opt {
+	display: inline-flex;
+	align-items: center;
+	gap: $space-1;
+	padding: 7px 12px;
+	font-size: 13px;
+	cursor: pointer;
+	color: $primary-font-color;
+}
+
+.seg-opt input {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+.seg-opt + .seg-opt {
+	border-left: 1px solid $primary-border-color;
+}
+
+.seg-opt:has(input:checked) {
+	background: $primary-button-color;
+	color: $inverted-font-color;
+}
+
+.seg-opt:not(:has(input:checked)):hover {
+	background: $hover-neutral-tint-color;
+}

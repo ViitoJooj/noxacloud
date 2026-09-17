@@ -1,0 +1,19 @@
+@use '../../styles/tokens' as *;
+
+.section-h2 {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: clamp(26px, 3vw, 34px);
+	line-height: 1.08;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	margin: 0 0 $space-1;
+}
+
+.section-lead {
+	font-size: 16px;
+	line-height: $base-leading;
+	max-width: $reading-measure;
+	margin: 0 0 calc(1.5 * #{$base-leading});
+	color: $secondary-font-color;
+}

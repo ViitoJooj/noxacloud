@@ -1,0 +1,82 @@
+@use '../../lib/styles/tokens' as *;
+
+.contact-hero {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: $space-8 $page-edge-padding $space-6;
+}
+
+.contact-hero h1 {
+	text-transform: uppercase;
+	letter-spacing: 0.01em;
+}
+
+.contact-sub {
+	max-width: $reading-measure;
+	color: $secondary-font-color;
+}
+
+.contact-grid {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: 0 $page-edge-padding $space-8;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: clamp(24px, 5vw, 96px);
+	align-items: start;
+
+	@media (max-width: 760px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.contact-form-card,
+.contact-success {
+	display: flex;
+	flex-direction: column;
+	gap: $space-3;
+}
+
+.contact-form-card form {
+	display: flex;
+	flex-direction: column;
+	gap: $space-3;
+}
+
+.contact-success {
+	padding: $space-4;
+	background: $secondary-background-color;
+}
+
+.contact-direct {
+	display: flex;
+	flex-direction: column;
+	padding-top: 4px;
+}
+
+.contact-direct-item {
+	padding: $base-leading 0;
+	border-bottom: 1px solid $primary-border-color;
+	display: flex;
+	flex-direction: column;
+	gap: $space-1;
+}
+
+.contact-direct-item:first-child {
+	padding-top: 0;
+}
+
+.contact-direct-item:last-child {
+	border-bottom: 0;
+}
+
+.contact-direct-item p {
+	color: $secondary-font-color;
+	font-size: 14px;
+	margin: 0;
+}
+
+.contact-direct-item a {
+	color: $primary-button-color;
+	font-size: 14px;
+}

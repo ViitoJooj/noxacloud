@@ -1,0 +1,84 @@
+@use '../../styles/tokens' as *;
+
+.a11y-widget {
+	position: fixed;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	z-index: 60;
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+}
+
+.a11y-tab {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: $space-3;
+	width: 40px;
+	min-height: 190px;
+	padding: $space-3 0;
+	border: none;
+	border-radius: $blueprint-border-radius;
+	background: $primary-button-color;
+	color: $inverted-font-color;
+	cursor: pointer;
+}
+
+.a11y-tab:hover {
+	background: $accent-600;
+}
+
+.a11y-tab-icon {
+	width: 18px;
+	height: 18px;
+	flex: none;
+}
+
+.a11y-tab-label {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 13px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	transform: rotate(90deg);
+}
+
+.a11y-panel {
+	width: 240px;
+	padding: $base-leading;
+	margin-right: $space-2;
+	display: flex;
+	flex-direction: column;
+	gap: $space-3;
+	background: $primary-background-color;
+	border: 1px solid $primary-border-color;
+	box-shadow: $shadow-lg;
+}
+
+.a11y-panel-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.a11y-panel-header .kicker {
+	margin: 0;
+}
+
+.a11y-panel-close {
+	border: none;
+	background: transparent;
+	color: $secondary-font-color;
+	font-size: 20px;
+	line-height: 1;
+	cursor: pointer;
+	padding: 0;
+}
+
+.a11y-panel-close:hover {
+	color: $primary-font-color;
+}

@@ -1,0 +1,112 @@
+@use '../../lib/styles/tokens' as *;
+
+.panel {
+	border: 1px solid $primary-border-color;
+	padding: $base-leading;
+	margin-bottom: $base-leading;
+}
+
+.panel h3 {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 18px;
+	text-transform: uppercase;
+	margin: 0 0 $half-leading;
+}
+
+.panel .field {
+	margin-bottom: $half-leading;
+}
+
+.panel-note {
+	font-size: 13px;
+	margin: 0 0 $base-leading;
+	color: $secondary-font-color;
+}
+
+.row {
+	display: flex;
+	gap: $space-3;
+	flex-wrap: wrap;
+	margin-top: $base-leading;
+	align-items: center;
+}
+
+.field-grow {
+	flex: 1;
+}
+
+.chevron {
+	color: $secondary-font-color;
+	margin-left: 6px;
+}
+
+.invoice-detail {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: $base-leading;
+	padding: $base-leading;
+	background: color-mix(in srgb, $primary-font-color 3%, transparent);
+	border-top: 1px solid $primary-border-color;
+	border-bottom: 1px solid $primary-border-color;
+}
+
+@media (max-width: 700px) {
+	.invoice-detail {
+		grid-template-columns: 1fr;
+	}
+}
+
+.invoice-detail-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.invoice-breakdown {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.invoice-breakdown-row {
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+	padding: 4px 0;
+	border-bottom: 1px solid $primary-border-color;
+}
+
+.invoice-breakdown-row:last-child {
+	border-bottom: 0;
+	font-weight: 600;
+}
+
+.endpoint-panel-label {
+	display: block;
+	font-size: 12px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: $secondary-font-color;
+	margin-bottom: 6px;
+}
+
+.kv {
+	display: grid;
+	gap: $base-leading;
+}
+
+.kv div span.k {
+	display: block;
+	font-size: 12px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: $secondary-font-color;
+	margin-bottom: 4px;
+}
+
+.kv div span.v {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 20px;
+}

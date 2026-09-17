@@ -1,0 +1,27 @@
+@use '../../styles/tokens' as *;
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+	color: $primary-font-color;
+}
+
+.table th {
+	text-align: left;
+	font-size: 11px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: $secondary-font-color;
+	padding: $space-2;
+	border-bottom: 1px solid $primary-border-color;
+}
+
+.table td {
+	padding: $space-2;
+	border-bottom: 1px solid $primary-border-color;
+}
+
+.table tbody tr:hover {
+	background: $hover-neutral-tint-color;
+}

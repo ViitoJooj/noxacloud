@@ -1,0 +1,59 @@
+@use '../../styles/tokens' as *;
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: $space-2;
+	cursor: pointer;
+	text-decoration: none;
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 14px;
+	line-height: 1.2;
+	color: $primary-font-color;
+	background: transparent;
+	border: 1px solid $primary-border-color;
+	padding: $space-2 calc(#{$space-3} * 1.2);
+	border-radius: $blueprint-border-radius;
+}
+
+.btn:disabled,
+.btn[aria-disabled='true'] {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
+
+.btn-primary {
+	background: $primary-button-color;
+	border-color: $primary-button-color;
+	color: $inverted-font-color;
+}
+.btn-primary:hover:not(:disabled) { background: $accent-600; }
+.btn-primary:active:not(:disabled) { background: $accent-700; }
+
+.btn-secondary {
+	background: $secondary-button-color;
+	border-color: $primary-border-color;
+	color: $primary-font-color;
+}
+.btn-secondary:hover:not(:disabled) { background: $hover-neutral-tint-color; }
+.btn-secondary:active:not(:disabled) { background: $selected-tint-color; }
+
+.btn-ghost {
+	border-color: transparent;
+	color: $primary-button-color;
+	padding-inline: $space-1;
+}
+.btn-ghost:hover:not(:disabled) { background: $hover-tint-color; }
+
+.btn-icon {
+	width: 36px;
+	height: 36px;
+	padding: 0;
+}
+
+.btn-block {
+	width: 100%;
+	margin-top: $space-2;
+}

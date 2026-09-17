@@ -1,0 +1,115 @@
+@use '../../styles/tokens' as *;
+
+.portal {
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 65px);
+}
+
+.portal-body {
+	display: flex;
+	flex: 1;
+	align-items: stretch;
+}
+
+.portal-sidebar {
+	width: 250px;
+	flex: none;
+	border-right: 1px solid $primary-border-color;
+	padding: $base-leading;
+	display: flex;
+	flex-direction: column;
+	gap: calc(#{$base-leading} * 1.5);
+}
+
+.portal-nav {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.portal-nav-label {
+	font-size: 11px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: color-mix(in srgb, $primary-font-color 45%, transparent);
+	margin: 0 0 4px;
+	padding: 0 $half-leading;
+}
+
+.portal-nav a {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 12px;
+	font-size: 14px;
+	text-decoration: none;
+	color: $primary-font-color;
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+
+.portal-nav a:hover {
+	background: $hover-neutral-tint-color;
+}
+
+.portal-nav a.active {
+	border-color: $primary-border-color;
+	color: $accent-700;
+}
+
+.portal-nav-back {
+	margin-top: auto;
+	font-size: 13px;
+	color: $secondary-font-color;
+	text-decoration: none;
+}
+
+.portal-nav-back:hover {
+	color: $accent-700;
+}
+
+.portal-main {
+	flex: 1;
+	min-width: 0;
+}
+
+.portal-main-inner {
+	padding: calc(#{$base-leading} * 1.25) clamp(20px, 4vw, 56px);
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.portal-main-inner h1 {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 30px;
+	text-transform: uppercase;
+	margin: 0 0 4px;
+}
+
+.portal-main-inner .lead {
+	font-size: 14px;
+	color: $secondary-font-color;
+	margin: 0 0 calc(#{$base-leading} * 1.5);
+}
+
+@media (max-width: 800px) {
+	.portal-body {
+		flex-direction: column;
+	}
+
+	.portal-sidebar {
+		width: 100%;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
+		border-right: 0;
+		border-bottom: 1px solid $primary-border-color;
+	}
+
+	.portal-nav {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}

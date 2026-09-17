@@ -1,0 +1,47 @@
+@use '../../lib/styles/tokens' as *;
+
+.auth-shell {
+	min-height: calc(100vh - 65px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: calc(#{$base-leading} * 2) $page-edge-padding;
+}
+
+.auth-card {
+	width: 100%;
+	max-width: 440px;
+	border: 1px solid $primary-border-color;
+	padding: calc(#{$base-leading} * 1.5);
+	position: relative;
+}
+
+.auth-card h1 {
+	font-size: 26px;
+	text-transform: uppercase;
+	margin: 0 0 $space-1;
+}
+
+.auth-card form {
+	display: flex;
+	flex-direction: column;
+	gap: $half-leading;
+}
+
+.lead {
+	font-size: 14px;
+	color: $secondary-font-color;
+	margin: 0 0 calc(#{$base-leading} * 1.5);
+}
+
+.auth-foot {
+	margin: $base-leading 0 0;
+	text-align: center;
+	font-size: 14px;
+	color: $secondary-font-color;
+}
+
+.auth-foot a {
+	color: $primary-button-color;
+	margin-left: $space-1;
+}

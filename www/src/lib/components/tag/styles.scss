@@ -1,0 +1,15 @@
+@use '../../styles/tokens' as *;
+
+.tag {
+	display: inline-flex;
+	align-items: center;
+	font-size: 11px;
+	letter-spacing: 0.02em;
+	padding: 3px 10px;
+	border-radius: $blueprint-border-radius;
+}
+
+.tag-accent { background: $accent-100; color: $accent-800; }
+.tag-accent-2 { background: $accent-2-100; color: $accent-2-800; }
+.tag-neutral { background: $neutral-100; color: $neutral-800; }
+.tag-outline { border: 1px solid $primary-button-color; color: $primary-button-color; }

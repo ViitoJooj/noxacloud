@@ -1,0 +1,34 @@
+@use '../../lib/styles/tokens' as *;
+
+.panel {
+	border: 1px solid $primary-border-color;
+	padding: $base-leading;
+	margin-bottom: $base-leading;
+}
+
+.panel h3 {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 18px;
+	text-transform: uppercase;
+	margin: 0 0 $half-leading;
+}
+
+.panel .field {
+	margin-bottom: $half-leading;
+}
+
+.caption-rule {
+	height: 1px;
+	border: 0;
+	margin: 0 0 calc(#{$base-leading} - #{$half-leading});
+	background: $primary-border-color;
+}
+
+.row {
+	display: flex;
+	gap: $space-3;
+	flex-wrap: wrap;
+	margin-top: $base-leading;
+	align-items: center;
+}

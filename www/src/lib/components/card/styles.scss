@@ -1,0 +1,42 @@
+@use '../../styles/tokens' as *;
+
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: $space-2;
+	padding: $base-leading;
+	border-radius: $blueprint-border-radius;
+	background: transparent;
+	border: 1px solid $primary-border-color;
+}
+
+.card-kicker {
+	font-size: 13px;
+	font-weight: $heading-font-weight;
+	letter-spacing: 0.08em;
+	color: $accent-700;
+	margin-bottom: $space-2;
+}
+
+.card-title {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 21px;
+	line-height: $base-leading;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.card-body {
+	margin: calc(#{$base-leading} - 1cap) 0 0;
+	font-size: 16px;
+	line-height: $base-leading;
+	color: $secondary-font-color;
+	flex: 1;
+}
+
+.card-meta {
+	font-size: 11px;
+	color: $secondary-font-color;
+}

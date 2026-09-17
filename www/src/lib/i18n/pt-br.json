@@ -1,3 +1,372 @@
 {
-    
+	"brand": "Noxacloud",
+	"nav": {
+		"home": "Início",
+		"infrastructure": "Infraestrutura",
+		"documentation": "Documentação",
+		"prices": "Preços",
+		"contact": "Contato",
+		"login": "Entrar",
+		"register": "Criar conta"
+	},
+	"footer": {
+		"tagline": "Tecnologia e infraestrutura sob medida para o comércio local: agendamento, delivery, catálogo e mais, rodando em nuvem gerenciada.",
+		"productHeading": "Produto",
+		"companyHeading": "Empresa",
+		"copyright": "© {year} Noxacloud",
+		"domain": "noxacloud.com.br"
+	},
+	"language": {
+		"toggleLabel": "Idioma",
+		"en": "Inglês",
+		"pt-br": "Português (Brasil)"
+	},
+	"terms": {
+		"title": "Termos de Serviço",
+		"subtitle": "Regras que valem para todo contrato Noxacloud: cancelamento, alterações de plano, pagamento e como falar com a gente."
+	},
+	"infrastructure": {
+		"kicker": "Infraestrutura",
+		"title": "Como a Noxacloud constrói e mantém seu sistema",
+		"subtitle": "O que roda por trás do site ou sistema entregue ao seu negócio.",
+		"flow": {
+			"kicker": "Fluxo de uma requisição"
+		},
+		"managed": {
+			"kicker": "Infraestrutura gerenciada"
+		},
+		"notifications": {
+			"kicker": "Notificações em tempo real",
+			"intro": "Você é avisado de tudo o que acontece na sua infraestrutura, sem precisar entrar no painel para descobrir:"
+		},
+		"stack": {
+			"kicker": "Stack de desenvolvimento",
+			"intro": "Tecnologias usadas na aplicação encomendada pelo seu negócio, entregue e mantida pela Noxacloud.",
+			"columns": {
+				"layer": "Camada",
+				"technology": "Tecnologia",
+				"role": "Função"
+			}
+		}
+	},
+	"documentation": {
+		"kicker": "Documentação da API",
+		"title": "API Noxacloud",
+		"subtitle": "Referência completa dos endpoints da Noxacloud, com autenticação, exemplos reais de requisição e resposta, e os fluxos de pedidos, agendamentos e cobrança usados no dia a dia da integração. Cada endpoint mostra os parâmetros aceitos, o corpo esperado na requisição e um exemplo de resposta para cada código de status possível, incluindo os casos de erro mais comuns. A documentação está dividida em APIs públicas, que não exigem chave de acesso, e APIs de cliente, voltadas para integrações autenticadas com o seu sistema.",
+		"auth": {
+			"kicker": "Autenticação",
+			"intro": "O login (POST /v1/auth/login) define dois cookies httpOnly: access_token, de curta duração, e refresh_token, que renova o acesso sem exigir login de novo quando o primeiro expira. Esses dois cookies bastam para os endpoints públicos. Já os endpoints de cliente também exigem o header Authorization: Bearer <chave de API>, gerado no painel, o que identifica a chamada por integração e permite revogá-la sem afetar a sessão logada do cliente.",
+			"accessToken": "Cookie httpOnly, expira em 15 minutos. Usado em toda chamada à API.",
+			"refreshToken": "Cookie httpOnly, expira em 30 dias. Só usado em /v1/auth/refresh.",
+			"bearerToken": "Chave de API gerada no painel, enviada via header. Só exigida nos endpoints de cliente."
+		},
+		"endpoints": {
+			"kicker": "Endpoints",
+			"publicIntro": "Endpoints públicos exigem apenas os cookies httpOnly de sessão (access_token e refresh_token), sem chave de API.",
+			"clientIntro": "Endpoints de cliente exigem os cookies de sessão e o cabeçalho Authorization: Bearer <chave de API>, gerada no painel do cliente."
+		},
+		"tier": {
+			"publica": "Pública",
+			"cliente": "Cliente"
+		},
+		"params": {
+			"heading": "Parâmetros de consulta",
+			"name": "Nome",
+			"location": "Local",
+			"type": "Tipo",
+			"required": "Obrigatório",
+			"desc": "Descrição"
+		},
+		"request": {
+			"heading": "Corpo da requisição"
+		},
+		"responses": {
+			"heading": "Respostas"
+		}
+	},
+	"home": {
+		"hero": {
+			"title": "Infraestrutura completa para o seu negócio.",
+			"subtitle": "Desenvolvimento sob medida (agendamento, delivery próprio, e-commerce, catálogo B2B), hospedagem em AWS, Azure ou Oracle Cloud, e um painel para pagamentos, contratos, suporte e infraestrutura, entregue e mantido pela Noxacloud.",
+			"simulateButton": "Simular orçamento",
+			"talkButton": "Falar com a gente"
+		},
+		"businessTypes": {
+			"kicker": "Tipos de negócio",
+			"title": "Construído para a sua operação, não para um nicho genérico",
+			"lead": "O escopo parte do que o seu negócio faz no dia a dia: agenda, entrega, catálogo, atacado ou matrícula. Escolha o tipo e veja o escopo montado no simulador.",
+			"noteBefore": "Não achou o seu? São",
+			"noteAfter": "tipos no simulador e o escopo é sob medida: descreva a operação e nós montamos.",
+			"noteLink": "Falar com a gente →"
+		},
+		"pillars": {
+			"kicker": "O que a Noxacloud entrega",
+			"title": "Três entregas, um fornecedor",
+			"lead": "Sistema, infraestrutura e administração no mesmo contrato. Sem terceirizar hospedagem, sem intermediário para cada ajuste.",
+			"noteLink": "Ver a infraestrutura em detalhe →"
+		},
+		"steps": {
+			"kicker": "Como funciona",
+			"title": "Do diagnóstico à manutenção",
+			"lead": "Cinco etapas, cada uma com entrega visível. Você acompanha tudo pelo painel desde o primeiro dia."
+		},
+		"comparison": {
+			"kicker": "Comparação",
+			"title": "Canal próprio, marketplace ou construtor de site",
+			"lead": "A diferença aparece no fim do mês: comissão e taxa por transação crescem com o seu faturamento, mensalidade fixa não.",
+			"columnNoxacloud": "Noxacloud",
+			"columnMarketplace": "Marketplace (iFood, Rappi)"
+		},
+		"guarantees": {
+			"kicker": "Contrato e garantias",
+			"title": "O que está escrito, não prometido",
+			"lead": "Somos uma operação nova e não vamos fingir uma lista de clientes. A garantia está no contrato, público antes de você assinar.",
+			"noteLink": "Ler os Termos de Serviço →"
+		},
+		"faq": {
+			"kicker": "Perguntas frequentes"
+		},
+		"cta": {
+			"title": "Descreva a operação, veja o escopo",
+			"body": "O simulador monta módulos, integrações e infraestrutura em poucos minutos, sem cadastro e sem conversa com vendedor."
+		}
+	},
+	"login": {
+		"title": "Entrar",
+		"lead": "Acesse o painel da sua conta Noxacloud.",
+		"emailLabel": "E-mail",
+		"emailPlaceholder": "voce@empresa.com.br",
+		"passwordLabel": "Senha",
+		"passwordPlaceholder": "••••••••",
+		"submit": "Entrar",
+		"submitting": "Entrando...",
+		"footerText": "Ainda não tem conta?",
+		"footerLink": "Registre-se",
+		"success": {
+			"title": "Você entrou",
+			"body": "Você entrou na sua conta Noxacloud."
+		}
+	},
+	"register": {
+		"title": "Criar conta",
+		"lead": "Cada estabelecimento tem sua própria conta na Noxacloud.",
+		"nameLabel": "Seu nome",
+		"namePlaceholder": "Nome completo",
+		"emailLabel": "E-mail",
+		"emailPlaceholder": "voce@empresa.com.br",
+		"passwordLabel": "Senha",
+		"passwordPlaceholder": "••••••••",
+		"confirmPasswordLabel": "Confirmar senha",
+		"submit": "Continuar",
+		"submitting": "Criando conta...",
+		"footerText": "Já tem conta?",
+		"footerLink": "Entrar",
+		"success": {
+			"title": "Conta criada",
+			"body": "Sua conta foi criada. Em breve você poderá cadastrar seu estabelecimento."
+		}
+	},
+	"auth": {
+		"validation": {
+			"required": "Campo obrigatório",
+			"invalidEmail": "E-mail inválido",
+			"passwordMismatch": "As senhas não coincidem."
+		}
+	},
+	"contact": {
+		"kicker": "Contato",
+		"title": "Contato & suporte",
+		"subtitle": "Dúvidas sobre planos, infraestrutura ou seu projeto? Preencha o formulário e nosso time retorna em até 1 dia útil.",
+		"form": {
+			"heading": "Fale com nosso time",
+			"firstNameLabel": "Nome",
+			"firstNamePlaceholder": "Seu nome",
+			"lastNameLabel": "Sobrenome",
+			"lastNamePlaceholder": "Seu sobrenome",
+			"emailLabel": "E-mail",
+			"emailPlaceholder": "voce@email.com",
+			"phoneLabel": "Telefone / WhatsApp",
+			"phonePlaceholder": "(11) 90000-0000",
+			"supportTypeLabel": "Tipo de suporte",
+			"supportTypePlaceholder": "Selecione",
+			"messageLabel": "Mensagem",
+			"messagePlaceholder": "Conte um pouco sobre seu negócio",
+			"submit": "Enviar mensagem",
+			"submitting": "Enviando..."
+		},
+		"success": {
+			"title": "Mensagem enviada",
+			"body": "Recebemos seu contato, retornamos em breve pelo WhatsApp ou e-mail informado."
+		},
+		"supportTypes": {
+			"comercial": "Comercial",
+			"suporteTecnico": "Suporte técnico",
+			"financeiro": "Financeiro",
+			"cobranca": "Cobrança e faturas",
+			"cancelamento": "Cancelamento",
+			"parcerias": "Parcerias",
+			"trabalheConosco": "Trabalhe conosco",
+			"bugBounty": "Bug bounty",
+			"imprensa": "Imprensa",
+			"outro": "Outro"
+		},
+		"cards": {
+			"commercial": {
+				"title": "Comercial",
+				"desc": "Novos projetos, orçamentos e demonstrações de protótipo.",
+				"email": "comercial@noxacloud.com.br"
+			},
+			"support": {
+				"title": "Suporte técnico",
+				"desc": "Clientes ativos: chamados e ajustes ficam registrados no painel, na aba Chamados.",
+				"linkLabel": "Acessar painel →"
+			},
+			"financial": {
+				"title": "Financeiro",
+				"desc": "Dúvidas sobre faturas, cobrança e condições contratuais.",
+				"email": "financeiro@noxacloud.com.br"
+			},
+			"general": {
+				"title": "E-mail geral",
+				"desc": "Respondemos em até 1 dia útil, direcionando para o time certo.",
+				"email": "contato@noxacloud.com.br"
+			}
+		},
+		"validation": {
+			"required": "Campo obrigatório",
+			"invalidEmail": "E-mail inválido"
+		}
+	},
+	"prices": {
+		"kicker": "Preços",
+		"title": "Quanto custa o seu projeto?",
+		"subtitle": "Monte um orçamento estimado escolhendo o tipo de negócio, recursos e infraestrutura. O valor final é confirmado em reunião.",
+		"blocks": {
+			"tipo": "1. Tipo de estabelecimento (escolha um)",
+			"recursos": "2. Recursos desejados (marque quantos quiser)",
+			"recursosNote": "Landing page simples não combina com os demais recursos: marcar um desativa o outro.",
+			"integracoes": "3. Integrações extras (marque quantas quiser)",
+			"infra": "4. Infraestrutura preferida",
+			"tecnicas": "5. Opções técnicas",
+			"orquestracao": "Orquestração",
+			"local": "Local dos servidores",
+			"prazo": "6. Prazo desejado",
+			"dominio": "7. Domínio"
+		},
+		"summary": {
+			"kicker": "Resumo",
+			"setup": "Construção (setup, único)",
+			"infra": "Infraestrutura ({infra}, mensal)",
+			"monthly": "Taxa de serviço (mensal)",
+			"total": "Total mensal estimado",
+			"note": "Estimativa: valor final confirmado em reunião, conforme escopo detalhado.",
+			"submit": "Solicitar proposta"
+		}
+	},
+	"accessibility": {
+		"label": "Acessibilidade",
+		"kicker": "Acessibilidade",
+		"close": "Fechar"
+	},
+	"portal": {
+		"settingsGroup": "Configurações",
+		"mainGroup": "Portal",
+		"exit": "Sair"
+	},
+	"contracts": {
+		"title": "Contratos",
+		"subtitle": "Termos contratados e documentos assinados.",
+		"status": "Status",
+		"type": "Tipo",
+		"download": "Baixar",
+		"view": "Ver",
+		"requestChange": "Pedir modificação",
+		"transfer": "Transferir",
+		"cancel": "Cancelar"
+	},
+	"tickets": {
+		"title": "Chamados",
+		"subtitle": "Suporte, correções e ajustes inclusos na mensalidade.",
+		"open": "Abrir chamado",
+		"tableTitle": "Título",
+		"tableCategory": "Categoria",
+		"tableStatus": "Status",
+		"tableDate": "Data",
+		"dialogTitle": "Abrir chamado",
+		"fieldTitle": "Título",
+		"fieldTitlePlaceholder": "Resuma o problema",
+		"fieldCategory": "Categoria",
+		"fieldDescription": "Descrição",
+		"fieldDescriptionPlaceholder": "Detalhe o que precisa",
+		"cancel": "Cancelar",
+		"submit": "Enviar chamado",
+		"newTicketFallback": "Novo chamado",
+		"today": "Hoje"
+	},
+	"payments": {
+		"title": "Pagamentos",
+		"subtitle": "Histórico de faturas e forma de cobrança da assinatura.",
+		"autoHeading": "Pagamento automático",
+		"autoNote": "Disponível somente com cartão de crédito.",
+		"cardNameLabel": "Nome no cartão",
+		"cardNamePlaceholder": "Como está impresso no cartão",
+		"cardNumberLabel": "Número do cartão",
+		"expiryLabel": "Validade",
+		"cvvLabel": "CVV",
+		"saveCard": "Salvar cartão",
+		"saved": "Salvo",
+		"edit": "Reeditar",
+		"invoicesHeading": "Faturas",
+		"issuedAt": "Emitida em",
+		"paidAt": "Paga em",
+		"total": "Total",
+		"status": "Status",
+		"payment": "Pagamento",
+		"method": "Forma",
+		"invoiceNumber": "Nota fiscal",
+		"downloadInvoice": "Baixar nota fiscal",
+		"payNow": "Pagar agora",
+		"breakdown": "Composição do valor",
+		"today": "Hoje"
+	},
+	"profile": {
+		"title": "Perfil",
+		"subtitle": "Dados da sua conta e do negócio vinculado a ela.",
+		"dataHeading": "Seus dados",
+		"nameLabel": "Nome",
+		"emailLabel": "E-mail",
+		"phoneLabel": "Telefone",
+		"businessHeading": "Negócio",
+		"businessNameLabel": "Nome do estabelecimento",
+		"cnpjLabel": "CNPJ",
+		"save": "Salvar alterações",
+		"saved": "Salvo",
+		"passwordHeading": "Senha",
+		"newPasswordLabel": "Nova senha",
+		"confirmPasswordLabel": "Confirmar nova senha",
+		"changePassword": "Alterar senha"
+	},
+	"projects": {
+		"title": "Projetos",
+		"subtitle": "Servidores rodando na sua infraestrutura.",
+		"close": "Fechar",
+		"project": "Projeto",
+		"memory": "Memória",
+		"disk": "Disco",
+		"region": "Região",
+		"createdAt": "Criado em",
+		"updatedAt": "Atualizado em",
+		"provider": "Provedor",
+		"autoBackup": "Backup automático",
+		"backupOn": "Ativado",
+		"backupOff": "Desativado",
+		"pause": "Pausar",
+		"stop": "Parar",
+		"start": "Iniciar",
+		"status": {
+			"online": "Online",
+			"paused": "Pausado",
+			"stopped": "Parado"
+		}
+	}
 }

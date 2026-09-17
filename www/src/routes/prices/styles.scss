@@ -1,0 +1,218 @@
+@use '../../lib/styles/tokens' as *;
+
+.prices-hero {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: $space-8 $page-edge-padding $space-6;
+}
+
+.prices-hero h1 {
+	text-transform: uppercase;
+	letter-spacing: 0.01em;
+}
+
+.prices-sub {
+	max-width: $reading-measure;
+	color: $secondary-font-color;
+}
+
+.calc-layout {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: 0 $page-edge-padding $space-8;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 340px;
+	gap: clamp(24px, 5vw, 64px);
+	align-items: start;
+
+	@media (max-width: 860px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.calc-form {
+	display: flex;
+	flex-direction: column;
+	gap: calc(1.5 * #{$base-leading});
+}
+
+.calc-block .group-label {
+	display: block;
+	font-size: 13px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	font-weight: $heading-font-weight;
+	color: $secondary-font-color;
+	margin-bottom: $half-leading;
+}
+
+.calc-block .group-sublabel {
+	display: block;
+	font-size: 13px;
+	color: $secondary-font-color;
+	margin: $space-3 0 $space-1;
+}
+
+.calc-block .group-sublabel:first-of-type {
+	margin-top: $half-leading;
+}
+
+.domain-note {
+	margin: $space-2 0 0;
+	font-size: 13px;
+	color: $secondary-font-color;
+}
+
+.box-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 10px;
+	align-items: stretch;
+}
+
+.option-box {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	border: 1px solid $primary-border-color;
+	padding: 10px 34px 10px 12px;
+	font-size: 14px;
+	cursor: pointer;
+	min-height: 56px;
+	box-sizing: border-box;
+}
+
+.option-box > span:not([class]) {
+	flex: 1;
+	min-width: 0;
+	line-height: 1.3;
+}
+
+.option-box:hover {
+	border-color: $accent-600;
+}
+
+.option-box.selected {
+	border-color: $primary-button-color;
+	background: $thirdary-button-color;
+}
+
+.option-box.disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+.option-box input {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+.option-indicator {
+	width: 16px;
+	height: 16px;
+	flex: none;
+	border: 1.5px solid $primary-border-color;
+	position: absolute;
+	top: 50%;
+	right: 12px;
+	transform: translateY(-50%);
+}
+
+.option-box input[type='radio'] + .option-indicator {
+	border-radius: 50%;
+}
+
+.option-box.selected .option-indicator {
+	border-color: $primary-button-color;
+}
+
+.option-box.selected .option-indicator::after {
+	content: '';
+	position: absolute;
+	inset: 3px;
+	background: $primary-button-color;
+}
+
+.option-box input[type='radio'] + .option-indicator::after {
+	border-radius: 50%;
+}
+
+.option-info {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: $secondary-background-color;
+	color: $secondary-font-color;
+	font-size: 10px;
+	font-style: italic;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: help;
+}
+
+.price-summary {
+	position: sticky;
+	top: $base-leading;
+	border: 1px solid $primary-border-color;
+	padding: $base-leading;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.estimate-row {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 10px 0;
+	border-bottom: 1px solid $primary-border-color;
+}
+
+.estimate-row:last-of-type {
+	border-bottom: 0;
+}
+
+.estimate-row span:first-child {
+	font-size: 13px;
+	color: $secondary-font-color;
+}
+
+.estimate-row .val {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 20px;
+	color: $primary-button-color;
+}
+
+.estimate-total {
+	border-top: 2px solid $primary-font-color;
+	border-bottom: 0;
+	margin-top: 4px;
+	padding-top: 12px;
+}
+
+.estimate-total span:first-child {
+	font-size: 13px;
+	font-weight: $heading-font-weight;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: $primary-font-color;
+}
+
+.estimate-total .val {
+	font-size: 26px;
+}
+
+.price-summary-note {
+	margin: $space-3 0 $space-3;
+	font-size: 12px;
+	color: $secondary-font-color;
+}

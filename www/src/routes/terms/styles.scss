@@ -1,0 +1,110 @@
+@use '../../lib/styles/tokens' as *;
+
+.terms-hero {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: $space-8 $page-edge-padding $space-6;
+}
+
+.terms-hero h1 {
+	text-transform: uppercase;
+	letter-spacing: 0.01em;
+}
+
+.terms-sub {
+	max-width: $reading-measure;
+	color: $secondary-font-color;
+}
+
+.legal-layout {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: 0 $page-edge-padding $space-8;
+	display: grid;
+	grid-template-columns: 260px minmax(0, 1fr);
+	gap: calc(#{$base-leading} * 1.25);
+	align-items: start;
+
+	@media (max-width: 760px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.legal-sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	position: sticky;
+	top: $base-leading;
+	align-self: start;
+	border-right: 1px solid $primary-border-color;
+	padding: $base-leading $space-3 $base-leading 0;
+
+	@media (max-width: 760px) {
+		position: static;
+		border-right: 0;
+		border-bottom: 1px solid $primary-border-color;
+		padding: 0 0 $space-3;
+	}
+
+	a {
+		font-size: 14px;
+		padding: 6px 4px;
+	}
+
+	a:hover {
+		background: $hover-neutral-tint-color;
+	}
+}
+
+.legal-main {
+	display: flex;
+	flex-direction: column;
+	gap: $base-leading;
+	min-width: 0;
+}
+
+.legal-section {
+	border: 1px solid $primary-border-color;
+	padding: $base-leading;
+	scroll-margin-top: $base-leading;
+}
+
+.legal-section h3 {
+	font-size: 20px;
+	margin: 0 0 $space-3;
+	text-transform: none;
+}
+
+.legal-section h4 {
+	font-size: 16px;
+	margin: $base-leading 0 $space-2;
+	text-transform: none;
+}
+
+.legal-section h4:first-of-type {
+	margin-top: $space-1;
+}
+
+.legal-section p {
+	font-size: 15px;
+	line-height: 1.55;
+	margin: 0 0 $space-2;
+	color: $secondary-font-color;
+}
+
+.legal-section p:last-child {
+	margin-bottom: 0;
+}
+
+.legal-sublist {
+	list-style: none;
+	padding: 0 0 0 $space-2;
+	margin: 0 0 $space-2;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	font-size: 15px;
+	line-height: 1.55;
+	color: $secondary-font-color;
+}

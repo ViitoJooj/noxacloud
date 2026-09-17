@@ -1,0 +1,299 @@
+@use '../lib/styles/tokens' as *;
+
+.home-section {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: $space-8 $page-edge-padding;
+}
+
+.home-hero-bleed {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(100vh - 68px - 5px);
+	width: 100vw;
+	padding: calc(1.5 * $space-8) 0;
+	overflow: hidden;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+}
+
+.home-hero-bg {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background-color: $accent-900;
+	background-size: cover;
+	background-position: center;
+}
+
+.home-hero-bg::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: $primary-button-color;
+	mix-blend-mode: color;
+}
+
+.home-hero-scrim {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	background: color-mix(in srgb, $accent-900 72%, transparent);
+}
+
+.home-hero-copy-overlay {
+	position: relative;
+	z-index: 2;
+	max-width: 720px;
+	text-align: center;
+	color: $inverted-font-color;
+	padding: 0 $page-edge-padding;
+}
+
+.home-hero-copy-overlay .home-button-row {
+	justify-content: center;
+}
+
+.home-hero-copy-overlay .btn-ghost {
+	color: $inverted-font-color;
+	border-color: $inverted-font-color;
+}
+
+.home-hero-copy-overlay .btn-ghost:hover {
+	background: rgba(242, 242, 243, 0.15);
+}
+
+.home-hero-title {
+	font-size: clamp(38px, 5.6vw, 76px);
+	line-height: clamp(42px, 6vw, 80px);
+	letter-spacing: 0.01em;
+	text-transform: uppercase;
+	color: $inverted-font-color;
+}
+
+.home-hero-sub {
+	font-size: 18px;
+	line-height: calc(1.4 * $base-leading);
+	color: $inverted-font-color-muted;
+	max-width: $reading-measure;
+	margin: $space-4 auto 0;
+}
+
+.home-sub {
+	max-width: $reading-measure;
+	color: $secondary-font-color;
+}
+
+.home-button-row {
+	display: flex;
+	gap: $space-2;
+	margin-top: $space-4;
+}
+
+.home-type-grid {
+	margin-top: $space-4;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: $space-2;
+}
+
+.home-type-cell {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	text-align: left;
+	border: 1px solid $primary-border-color;
+	background: transparent;
+	color: $primary-font-color;
+	padding: $space-3;
+	text-decoration: none;
+}
+
+.home-type-cell:hover {
+	border-color: $secondary-border-color;
+	background: $hover-tint-color;
+}
+
+.home-type-cell strong {
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 17px;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.home-type-cell span {
+	font-size: 13px;
+	line-height: 1.35;
+	color: $secondary-font-color;
+}
+
+.home-section-note {
+	margin-top: $space-4;
+	font-size: 14px;
+	color: $secondary-font-color;
+}
+
+.home-section-note a {
+	color: $primary-button-color;
+}
+
+.home-card-grid {
+	margin-top: $space-4;
+	display: grid;
+	gap: $space-4;
+}
+
+.home-card-grid-3 {
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.home-card-grid-4 {
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.home-card-grid-5 {
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.home-comparison-table {
+	margin-top: $space-4;
+	border: 1px solid $primary-border-color;
+}
+
+.home-comparison-table .table {
+	table-layout: fixed;
+	font-size: 15px;
+}
+
+.home-comparison-table .table thead {
+	background: $primary-background-color;
+}
+
+.home-comparison-table .table th {
+	font-size: 13px;
+	padding: $space-3;
+}
+
+.home-comparison-table .table td {
+	padding: $space-3;
+	line-height: 1.4;
+}
+
+.home-comparison-table .table th:first-child,
+.home-comparison-table .table td:first-child {
+	font-weight: $heading-font-weight;
+}
+
+.home-comparison-table .table tbody tr:nth-child(odd) {
+	background: $primary-background-color;
+}
+
+.home-comparison-table .table tbody tr:nth-child(even) {
+	background: $secondary-background-color;
+}
+
+.home-comparison-table .table th:nth-child(2),
+.home-comparison-table .table td:nth-child(2) {
+	background: $selected-tint-color;
+	font-weight: $heading-font-weight;
+}
+
+.home-comparison-table .table th:nth-child(2) {
+	color: $accent-700;
+	font-size: 14px;
+	letter-spacing: 0.04em;
+}
+
+.home-faq-list {
+	margin-top: $space-4;
+	display: flex;
+	flex-direction: column;
+	gap: $space-1;
+	border-top: 1px solid $primary-border-color;
+}
+
+.home-faq-item {
+	border-bottom: 1px solid $primary-border-color;
+}
+
+.home-faq-q {
+	width: 100%;
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: $space-4;
+	padding: $base-leading 0;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	font-family: $primary-font-family;
+	font-weight: $heading-font-weight;
+	font-size: 19px;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	text-align: left;
+	color: $primary-font-color;
+}
+
+.home-faq-q:hover {
+	color: $accent-700;
+}
+
+.home-faq-sign {
+	flex: none;
+	color: $accent-700;
+	font-size: 18px;
+}
+
+.home-faq-a {
+	margin: 0 0 $base-leading;
+	color: $secondary-font-color;
+	font-size: 15px;
+	line-height: $base-leading;
+	max-width: 74ch;
+}
+
+.home-cta-band {
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	margin-top: calc(2 * $base-leading);
+	background: $accent-900;
+	color: $inverted-font-color;
+	text-align: center;
+	padding: calc(2.5 * $base-leading) $page-edge-padding;
+}
+
+.home-cta-band h3 {
+	font-size: clamp(28px, 4vw, 44px);
+	line-height: 1.05;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.home-cta-band p {
+	font-size: 17px;
+	line-height: $base-leading;
+	max-width: 58ch;
+	margin-left: auto;
+	margin-right: auto;
+	color: $inverted-font-color-muted;
+}
+
+.home-cta-band .home-button-row {
+	justify-content: center;
+	margin-top: calc(1.5 * $base-leading);
+}
+
+.home-cta-band .btn-ghost {
+	color: $inverted-font-color;
+	border-color: $inverted-font-color;
+}
+
+.home-cta-band .btn-ghost:hover {
+	background: rgba(242, 242, 243, 0.15);
+}
