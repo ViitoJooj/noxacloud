@@ -14,9 +14,9 @@ type UsersRepository struct {
 	DB *sql.DB
 }
 
-func NewUsersRepository(db *sql.DB) UsersRepository {
+func NewUsersRepository(pgdb *sql.DB) UsersRepository {
 	return UsersRepository{
-		DB: db,
+		DB: pgdb,
 	}
 }
 

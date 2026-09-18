@@ -10,9 +10,9 @@ import (
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 )
 
-func Migrate(ctx context.Context, db *sql.DB) error {
+func Migrate(ctx context.Context, pgdb *sql.DB) error {
 
-	driver, err := pgmigrate.WithInstance(db, &pgmigrate.Config{})
+	driver, err := pgmigrate.WithInstance(pgdb, &pgmigrate.Config{})
 	if err != nil {
 		return fmt.Errorf("migration driver: %w", err)
 	}

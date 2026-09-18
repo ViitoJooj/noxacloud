@@ -11,11 +11,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Init(ctx context.Context, server *gin.Engine, db *sql.DB) error {
+func Init(ctx context.Context, server *gin.Engine, pgdb *sql.DB) error {
 
 	ctx = ctxmod.SetFunc(ctx)
 
-	usersRepository := repositories.NewUsersRepository(db)
+	usersRepository := repositories.NewUsersRepository(pgdb)
 
 	err := http_controllers.RegisterUsersControllers(http_controllers.RegisterUsersControllersInput{
 		Router:            &server.RouterGroup,

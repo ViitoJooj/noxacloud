@@ -14,6 +14,7 @@ type Cfg struct {
 	Application Application
 	PostgreSQL  PostgreSQL
 	Stripe      Stripe
+	Redis       Redis
 }
 
 type Application struct {
@@ -22,6 +23,10 @@ type Application struct {
 }
 
 type PostgreSQL struct {
+	Uri string
+}
+
+type Redis struct {
 	Uri string
 }
 
@@ -49,6 +54,9 @@ func NewDotenv(ctx context.Context) (*Cfg, error) {
 		PostgreSQL: PostgreSQL{
 			Uri: os.Getenv("POSTGRES_URI"),
 		},
+		Redis: Redis{
+			Uri: os.Getenv("REDIS_URI"),
+		},
 		Stripe: Stripe{
 			SecretKey: os.Getenv("STRIPE_SECRET_KEY"),
 			PublicKey: os.Getenv("STRIPE_PUBLIC_KEY"),
@@ -68,6 +76,10 @@ func validate(cfg Cfg) error {
 
 	if cfg.PostgreSQL.Uri == "" {
 		erros = append(erros, "POSTGRES_URI")
+	}
+
+	if cfg.Redis.Uri == "" {
+		erros = append(erros, "REDIS_URI")
 	}
 
 	if cfg.Stripe.SecretKey == "" {

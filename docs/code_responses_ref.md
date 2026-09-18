@@ -2,15 +2,15 @@
 
 This document lists the standardized API response codes for the Authentication module, along with their definitions.
 
-## Auth
+## Auth/Users
 
-- ### Register
+- ### Register/Create
     - **rax-00**: Account created successfully.
     - **rax-01**: Error on create account.
 - ### Login
     - **rax-02**: Login successful.
     - **rax-03**: Failed to login.
-- ### Me
+- ### Me/List/getById
     - **rax-04**: Profile data retrieved successfully.
     - **rax-05**: Error on get user data.
 - ### Token
